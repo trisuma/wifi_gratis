@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Welcome — WiFi Info</title>
+  <style>
+    /* Reset sederhana */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+
+    /* Latar belakang lembut */
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,#f3f4f6,#e9eef3);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    /* Kotak konten */
+    .card{
+      width:100%;
+      max-width:520px;           /* batas lebar pada layar besar */
+      background:rgba(255,255,255,0.95);
+      border-radius:14px;
+      box-shadow:0 8px 30px rgba(10,20,40,0.08);
+      padding:20px;
+      text-align:center;
+    }
+
+    h1{
+      font-size:1.05rem;
+      margin-bottom:10px;
+      color:#111827;
+    }
+
+    p.note{
+      font-size:0.85rem;
+      color:#475569;
+      margin-bottom:14px;
+    }
+
+    /* Gambar ditengah, tidak memenuhi layar */
+    .image-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px;
+    }
+
+    .image-wrap img{
+      width:60%;                 /* ukuran relatif terhadap box */
+      max-width:320px;           /* batas maksimal width */
+      height:auto;
+      max-height:70vh;           /* jangan melebihi tinggi layar */
+      object-fit:contain;
+      border-radius:8px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+      background:#fff;
+    }
+
+    /* tombol kecil jika mau menampilkan info WiFi (opsional) */
+    .actions{
+      margin-top:14px;
+      display:flex;
+      gap:8px;
+      justify-content:center;
+    }
+
+    .btn{
+      padding:8px 12px;
+      border-radius:8px;
+      font-size:0.9rem;
+      cursor:pointer;
+      border:none;
+      background:#0ea5a4;
+      color:white;
+    }
+
+    .btn.secondary{
+      background:transparent;
+      color:#0f172a;
+      border:1px solid rgba(15,23,42,0.06);
+    }
+
+    /* Responsif untuk layar sangat kecil */
+    @media (max-width:360px){
+      .image-wrap img{ width:72%; max-width:260px; }
+      .card{ padding:14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="title">
+    <h1 id="title">Selamat datang di WiFi kantor</h1>
+    <p class="note">Scan QR ini untuk informasi WiFi — atau nikmati kejutan kecil 😉</p>
+
+    <div class="image-wrap" aria-hidden="false">
+      <!-- ganti src jika namanya berbeda -->
+      <img src="gambar/grila fuck.jpeg" alt="Gambar lucu bertema IT" id="mainImage">
+    </div>
+
+    <div class="actions">
+      <button class="btn" id="showWifi">Tampilkan info WiFi</button>
+      <button class="btn secondary" id="closeBtn">Tutup</button>
+    </div>
+  </div>
+
+  <script>
+    // Tombol contoh: ketika ditekan tampilkan info wifi (bisa diisi sesuai kebutuhan)
+    document.getElementById('showWifi').addEventListener('click', function(){
+      // contoh menampilkan info (ubah sesuai kebijakan kantor)
+      alert("Nama jaringan (SSID): Kantor-WiFi\nPassword: pilihlah yang aman\nNote: hubungi IT untuk akses penuh.");
+    });
+
+    // Tombol close: pindah ke halaman lain atau tutup
+    document.getElementById('closeBtn').addEventListener('click', function(){
+      // contoh arahkan kembali ke home perusahaan
+      window.location.href = "https://www.example.com";
+    });
+
+    // Opsional: pastikan gambar tidak terlalu besar di layar sangat kecil
+    (function adjustImage(){
+      const img = document.getElementById('mainImage');
+      if(!img) return;
+      img.addEventListener('load', ()=> {
+        // bisa tambahkan logika jika perlu
+      });
+    })();
+  </script>
+</body>
+</html>
